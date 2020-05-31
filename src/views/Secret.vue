@@ -1,11 +1,15 @@
 <template>
-  <div class="home">
-    HOME
+  <div>
+      Secret
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+
 }
 </script>
+
+<style>
+
+</style>
