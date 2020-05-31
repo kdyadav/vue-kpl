@@ -46,7 +46,7 @@ export default {
       .doc(this.$route.params.tournament_id)
       .collection("matches")
       .doc(this.$route.params.id)
-      .collection("teams");
+      .collection("innings");
     this.get_data();
   }
 };

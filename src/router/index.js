@@ -7,6 +7,7 @@ import Secret from "../views/Secret.vue";
 import About from "../views/About.vue";
 import Tournaments from "../admin/tournament/list";
 import Matches from "../admin/match/list";
+import MatcheDetails from "../admin/match/details";
 
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -50,6 +51,11 @@ const routes = [
     path: "/tournaments/:id/matches",
     name: "tournaments-matches",
     component: Matches
+  },
+  {
+    path: "/tournaments/:tournament_id/matches/:id",
+    name: "match-details",
+    component: MatcheDetails
   }
 
 ];

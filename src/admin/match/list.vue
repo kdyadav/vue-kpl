@@ -4,17 +4,29 @@
       <thead>
         <tr>
           <th>Name</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(item,i) in data" :key="i">
           <td>
-            <router-link :to="{name:'tournaments-matches',params:{id:item.id}}">{{t.name}}</router-link>
+            <router-link
+              :to="{name:'match-details',params:{tournament_id:$route.params.id,id:item.id}}"
+            >{{item.name}}</router-link>
+          </td>
+          <td>
+            <a @click="delete_item(item.id)">
+              <i class="fa fa-trash"></i>
+            </a>
+            |
+            <a @click="open_form(item)">
+              <i class="fa fa-edit"></i>
+            </a>
           </td>
         </tr>
       </tbody>
     </table>
-    <button @click="create">Add New</button>
+    <button @click="open_form" class="button is-primary">Add New</button>
   </div>
 </template>
 

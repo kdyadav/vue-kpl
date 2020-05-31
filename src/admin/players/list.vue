@@ -4,14 +4,16 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Venue</th>
           <th>action</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(item,i) in data" :key="i">
-          <router-link class="is-pointer" :to="{name:'tournaments-matches',params:{id:item.id}}" tag="td">{{item.name}}</router-link>
-          <td>{{item.venue}} {{item}}</td>
+          <router-link
+            class="is-pointer"
+            :to="{name:'tournaments-matches',params:{id:item.id}}"
+            tag="td"
+          >{{item.name}}</router-link>
           <td>
             <a @click="delete_item(item.id)">
               <i class="fa fa-trash"></i>
@@ -24,7 +26,7 @@
         </tr>
       </tbody>
     </table>
-    <button @click="open_form()" class="button is-primary">Add New</button>
+    <button v-if="data.length<=11" @click="open_form()" class="button is-primary">Add New</button>
   </div>
 </template>
 
@@ -33,6 +35,7 @@ import { mapState } from "vuex";
 import CRUD from "../crud.mixin";
 import formComponent from "./form";
 export default {
+  props: ["team_id"],
   mixins: [CRUD],
 
   data() {
@@ -42,7 +45,15 @@ export default {
     ...mapState(["fb"])
   },
   created() {
-    this.ref = this.fb.collection("tournaments");
+    this.ref = this.ref = this.fb
+      .collection("tournaments")
+      .doc(this.$route.params.tournament_id)
+      .collection("matches")
+      .doc(this.$route.params.id)
+      .collection("teams")
+      .doc(this.team_id)
+      .collection("players");
+
     this.get_data();
   }
 };

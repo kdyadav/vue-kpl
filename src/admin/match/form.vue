@@ -5,14 +5,17 @@
         <p class="modal-card-title">Match</p>
       </header>
       <section class="modal-card-body">
-        <b-field label="Name(Title)">
-          <b-input type="text" v-model="form.name" placeholder="eg. Match 1" required></b-input>
+        <b-field label="Name(Title)*">
+          <b-input type="text" v-model="form.name" placeholder="Match 1" required></b-input>
         </b-field>
-        <b-field label="Date">
+        <b-field label="Date*">
           <b-input type="date" v-model="form.date" placeholder="Date" required></b-input>
         </b-field>
         <b-field label="Time">
-          <b-input type="time" v-model="form.time" placeholder="Time" required></b-input>
+          <b-input type="time" v-model="form.time" placeholder="Time"></b-input>
+        </b-field>
+        <b-field label="Ground Name">
+          <b-input type="text" v-model="form.ground_name" placeholder="Ground Name"></b-input>
         </b-field>
       </section>
       <footer class="modal-card-foot">
@@ -29,15 +32,16 @@ export default {
   data() {
     return {
       form: {
-        name: "KPL",
+        name: "",
         date: "",
-        time: ""
+        time: "",
+        ground_name: ""
       }
     };
   },
   created() {
     if (this.data) {
-      this.form = _.pick(this.data, ["name", "date", "time"]);
+      this.form = _.pick(this.data, ["name", "date", "time", "ground_name"]);
     }
   }
 };

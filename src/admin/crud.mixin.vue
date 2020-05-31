@@ -23,7 +23,6 @@ export default {
       });
     },
     delete_item(id) {
-        console.log(id)
       this.$buefy.dialog.confirm({
         title: "Deleting",
         message:
