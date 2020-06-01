@@ -5,6 +5,7 @@
         <p class="modal-card-title">Player</p>
       </header>
       <section class="modal-card-body">
+        <!-- {{last_record}} -->
         <b-field label="Batter*">
           <b-select expanded v-model="form.batter" placeholder="Select a name">
             <option
@@ -70,10 +71,10 @@ export default {
       form: {
         batter: "",
         bowler: "",
-        over: "1",
-        bowl: "1",
+        over: 1,
+        bowl: 1,
         bowl_type: "Bowl",
-        run: "0",
+        run: 0,
         commentary: ""
       }
     };
@@ -89,9 +90,7 @@ export default {
         this.last_record.bowl + 1 <= 6
       )
         this.form.bowl = this.last_record.bowl + 1;
-    }
-
-    if (this.data) {
+    } else if (this.data) {
       this.form = _.pick(this.data, [
         "batter",
         "bowler",

@@ -77,7 +77,7 @@ export default {
     get_team_players(ref) {
       ref
         .collection("teams")
-        .doc(this.inning.batting_team)
+        .doc(this.inning.batting_team.id)
         .collection("players")
         .get()
         .then(querySnapshot => {
@@ -91,7 +91,7 @@ export default {
         });
       ref
         .collection("teams")
-        .doc(this.inning.bowling_team)
+        .doc(this.inning.bowling_team.id)
         .collection("players")
         .get()
         .then(querySnapshot => {
