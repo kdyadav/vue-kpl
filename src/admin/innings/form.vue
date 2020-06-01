@@ -15,7 +15,7 @@
             v-model="form.batting_team"
             placeholder="Select a name"
           >
-            <option v-for="option in teams" :value="option.id" :key="option.id">{{ option.name }}</option>
+            <option v-for="option in teams" :value="option" :key="option.id">{{ option.name }}</option>
           </b-select>
         </b-field>
         <b-field label="Bowling">
@@ -25,7 +25,7 @@
             v-model="form.bowling_team"
             placeholder="Select a name"
           >
-            <option v-for="option in teams" :value="option.id" :key="option.id">{{ option.name }}</option>
+            <option v-for="option in teams" :value="option" :key="option.id">{{ option.name }}</option>
           </b-select>
         </b-field>
       </section>
@@ -75,15 +75,13 @@ export default {
   methods: {
     select_batting_team() {
       this.form.bowling_team =
-        this.form.batting_team == this.teams[0].id
-          ? this.teams[1].id
-          : this.teams[0].id;
+        this.form.batting_team == this.teams[0] ? this.teams[1] : this.teams[0];
     },
     select_bowling_team() {
       this.form.batting_team =
-        this.form.bowling_team == this.teams[0].id
-          ? this.teams[1].id
-          : this.teams[0].id;
+        this.form.bowling_team == this.teams[0]
+          ? this.teams[1]
+          : this.teams[0];
     }
   }
 };

@@ -1,10 +1,32 @@
 <template>
   <div>
-    <div>
-      <h4>{{details.name}}</h4>
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">Match details</p>
+      </header>
+      <div class="card-content">
+        <h2 class="subtitle is-5">{{details.name}}</h2>
+        <div class="columns">
+          <div class="column">
+            <p class="tag">
+              Date
+              {{details.date}} {{details.time?details.time:""}}
+            </p>
+          </div>
+          <div class="column">
+            <p class="tag">Overs {{details.overs}}</p>
+          </div>
+          <div class="column">
+            <p class="tag">Ground Name {{details.ground_name}}</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <TeamList />
+    <hr />
+
     <InningsList />
+    <hr />
+    <TeamList />
   </div>
 </template>
 

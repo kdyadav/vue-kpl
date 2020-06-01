@@ -4,7 +4,12 @@
       <div class="column" v-for="(item,i) in data" :key="i">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">{{item.name}}</p>
+            <p class="card-header-title">
+              {{item.name}}
+              <span
+                class="tag"
+              >{{item.batting_team.name}} vs {{item.bowling_team.name}}</span>
+            </p>
             <span v-if="loggedIn" class="card-header-icon" aria-label="more options">
               <a @click="delete_item(item.id)">
                 <i class="fa fa-trash"></i>
@@ -16,7 +21,7 @@
             </span>
           </header>
           <div class="card-content">
-            <ScoreList :inning_id="item.id" />
+            <ScoreList :inning="item" />
           </div>
         </div>
       </div>
@@ -45,7 +50,7 @@ export default {
     ...mapState(["fb"])
   },
   created() {
-    this.ref = this.ref = this.fb
+    this.ref = this.fb
       .collection("tournaments")
       .doc(this.$route.params.tournament_id)
       .collection("matches")
