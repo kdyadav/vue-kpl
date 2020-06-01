@@ -14,7 +14,7 @@
       </section>
       <footer class="modal-card-foot">
         <button class="button" type="button" @click="$parent.close()">Cancel</button>
-        <button class="button is-primary" >Save</button>
+        <button class="button is-primary">Save</button>
       </footer>
     </div>
   </form>
@@ -22,19 +22,21 @@
 
 <script>
 export default {
-  props: ["data","save"],
+  props: ["data", "save"],
   data() {
     return {
       form: {
         name: "",
-        venue: ""
+        venue: "",
+        user_id: null
       }
     };
   },
   created() {
-      if(this.data){
-          this.form = _.pick(this.data, ["name", "venue"]);
-      }
+    this.form.user_id = this.current_user.uid;
+    if (this.data) {
+      this.form = _.pick(this.data, ["name", "venue"]);
+    }
   }
 };
 </script>

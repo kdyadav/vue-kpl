@@ -58,8 +58,6 @@ export default {
       });
     },
     save(data, id) {
-      data = {...data,user_id:this.current_user.uid};
-      
       (id ? this.ref.doc(id).set(data) : this.ref.add(data))
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);

@@ -18,7 +18,7 @@
             tag="td"
           >{{item.name}}</router-link>
           <td>{{item.venue || "NA"}}</td>
-          <td v-if="loggedIn"  class="has-text-right">
+          <td v-if="loggedIn" class="has-text-right">
             <a @click="delete_item(item.id)">
               <i class="fa fa-trash"></i>
             </a>
@@ -48,8 +48,25 @@ export default {
     ...mapState(["fb"])
   },
   created() {
-    this.ref = this.fb.collection("tournaments");
-    this.get_data();
+    // if (this.loggedIn) {
+    //   this.ref = this.fb
+    //     .collection("tournaments")
+    //     .where("user_id", "==", this.current_user.uid);
+    // } else {
+    //   this.ref = this.fb.collection("tournaments");
+    // }
+  },
+  watch: {
+    loggedIn(val) {
+      if (val) {
+        this.ref = this.fb
+          .collection("tournaments")
+          .where("user_id", "==", this.current_user.uid);
+      } else {
+        this.ref = this.fb.collection("tournaments");
+      }
+      this.get_data();
+    }
   }
 };
 </script>
