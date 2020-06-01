@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       form: {
-        name: "KPL",
+        name: "",
         date: "",
         time: "",
         ground_name: ""

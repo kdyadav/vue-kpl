@@ -6,7 +6,16 @@
       </header>
       <section class="modal-card-body">
         <b-field label="Name*">
-          <b-input type="text" v-model="form.name" placeholder="Match 1" required></b-input>
+          <b-input type="text" v-model="form.name" placeholder="Ashu" required></b-input>
+        </b-field>
+        <b-field label="Type">
+          <b-select expanded v-model="form.type" placeholder="Select player profile">
+            <option
+              v-for="(option,i) in ['captain','vice-captain','bowler','batter','keeper']"
+              :value="option"
+              :key="i"
+            >{{ option }}</option>
+          </b-select>
         </b-field>
       </section>
       <footer class="modal-card-foot">
@@ -24,15 +33,12 @@ export default {
     return {
       form: {
         name: "",
-        date: "",
-        time: "",
-        ground_name: ""
       }
     };
   },
   created() {
     if (this.data) {
-      this.form = _.pick(this.data, ["name", "date", "time", "ground_name"]);
+      this.form = _.pick(this.data, ["name", "type"]);
     }
   }
 };

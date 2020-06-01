@@ -25,8 +25,7 @@ export default {
     delete_item(id) {
       this.$buefy.dialog.confirm({
         title: "Deleting",
-        message:
-          "Are you sure about this action?",
+        message: "Are you sure about this action?",
         confirmText: "Delete Account",
         type: "is-danger",
         onConfirm: () => {
@@ -43,11 +42,12 @@ export default {
         }
       });
     },
-    open_form(item) {
+    open_form(item, info = {}) {
       this.$buefy.modal.open({
         props: {
           data: item,
-          save: this.save
+          save: this.save,
+          ...info
         },
         parent: this,
         component: this.formComponent,

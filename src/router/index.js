@@ -62,6 +62,16 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
+  "hosting": {
+    "public": "./dist",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+
   base: process.env.BASE_URL,
   routes
 });

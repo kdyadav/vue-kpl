@@ -24,7 +24,7 @@
         </tr>
       </tbody>
     </table>
-    <button @click="open_form()" class="button is-primary">Add New</button>
+    <button @click="open_form()" class="button is-primary">Add Tournament</button>
   </div>
 </template>
 

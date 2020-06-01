@@ -16,13 +16,17 @@
             </a>
           </header>
           <div class="card-content">
-            <playerList :team_id="item.id" />
+            <ScoreList :inning_id="item.id" />
           </div>
         </div>
       </div>
     </div>
 
-    <button v-if="data.length<=1" @click="open_form()" class="button is-primary">Add New</button>
+    <button
+      v-if="data.length<=1"
+      @click="open_form(null,{name:data.length+1})"
+      class="button is-primary"
+    >Add Inning</button>
   </div>
 </template>
 
@@ -30,10 +34,10 @@
 import { mapState } from "vuex";
 import CRUD from "../crud.mixin";
 import formComponent from "./form";
-import playerList from "../players/list";
+import ScoreList from "../score/list";
 export default {
   mixins: [CRUD],
-  components: { playerList },
+  components: { ScoreList },
   data() {
     return { formComponent };
   },
