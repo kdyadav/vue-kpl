@@ -6,7 +6,7 @@
       </div>
     </div>
 
-    <button v-if="data.length<=1" @click="open_form()" class="button is-primary">Add Team</button>
+    <button  v-if="loggedIn && data.length<=1" @click="open_form()" class="button is-primary">Add Team</button>
   </div>
 </template>
 

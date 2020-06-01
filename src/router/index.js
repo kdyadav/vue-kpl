@@ -4,7 +4,6 @@ import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import Secret from "../views/Secret.vue";
-import About from "../views/About.vue";
 import Tournaments from "../admin/tournament/list";
 import Matches from "../admin/match/list";
 import MatcheDetails from "../admin/match/details";
@@ -36,12 +35,6 @@ const routes = [
     name: "register",
     component: Register
   },
-  {
-    path: "/about",
-    name: "about",
-    component: About
-  }
-  ,
   {
     path: "/tournaments",
     name: "tournaments",

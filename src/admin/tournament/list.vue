@@ -5,14 +5,20 @@
         <tr>
           <th>Name</th>
           <th>Venue</th>
-          <th>action</th>
+          <th v-if="loggedIn" class="has-text-right">
+            <i class="fa fa-cogs" aria-hidden="true"></i>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(item,i) in data" :key="i">
-          <router-link class="is-pointer" :to="{name:'tournaments-matches',params:{id:item.id}}" tag="td">{{item.name}}</router-link>
-          <td>{{item.venue}} {{item}}</td>
-          <td>
+          <router-link
+            class="is-pointer"
+            :to="{name:'tournaments-matches',params:{id:item.id}}"
+            tag="td"
+          >{{item.name}}</router-link>
+          <td>{{item.venue || "NA"}}</td>
+          <td v-if="loggedIn"  class="has-text-right">
             <a @click="delete_item(item.id)">
               <i class="fa fa-trash"></i>
             </a>
@@ -24,7 +30,7 @@
         </tr>
       </tbody>
     </table>
-    <button @click="open_form()" class="button is-primary">Add Tournament</button>
+    <button v-if="loggedIn" @click="open_form()" class="button is-primary">Add Tournament</button>
   </div>
 </template>
 

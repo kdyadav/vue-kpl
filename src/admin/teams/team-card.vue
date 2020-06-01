@@ -2,7 +2,7 @@
   <div class="card">
     <header class="card-header">
       <p @click="active=!active" class="card-header-title">{{item.name}}</p>
-      <a href="#" class="card-header-icon" aria-label="more options">
+      <span v-if="loggedIn" class="card-header-icon" aria-label="more options">
         <a @click="$parent.delete_item(item.id)">
           <i class="fa fa-trash"></i>
         </a>
@@ -10,7 +10,7 @@
         <a @click="$parent.open_form(item)">
           <i class="fa fa-edit"></i>
         </a>
-      </a>
+      </span>
     </header>
     <div class="card-content" v-show="active">
       <playerList :team_id="item.id" />

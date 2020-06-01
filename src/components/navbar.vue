@@ -22,8 +22,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu" :class="{'is-expanded':expand==true}">
       <div class="navbar-start">
-        <router-link class="navbar-item" :to="{name:''}">Home</router-link>
-        <router-link class="navbar-item" :to="{name:'about'}">About</router-link>
+        <router-link class="navbar-item" :to="{name:'home'}">Home</router-link>
         <router-link class="navbar-item" :to="{name:'tournaments'}">Tournaments</router-link>
       </div>
       <div class="navbar-end">
@@ -47,22 +46,25 @@
 <script>
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import { mapMutations } from "vuex";
 export default {
   name: "top-header",
+  data() {
+    return {
+      expand: null
+    };
+  },
   mounted() {
     this.setupFirebase();
   },
   methods: {
+    ...mapMutations(["SET_AUTHENICATION"]),
     setupFirebase() {
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
-          // User is signed in.
-          console.log("signed in");
-          this.loggedIn = true;
+          this.SET_AUTHENICATION(true);
         } else {
-          // No user is signed in.
-          this.loggedIn = false;
-          console.log("signed out", this.loggedIn);
+          this.SET_AUTHENICATION(false);
         }
       });
     },
@@ -74,12 +76,6 @@ export default {
           this.$router.replace({ name: "login" });
         });
     }
-  },
-  data() {
-    return {
-      expand: null,
-      loggedIn: false
-    };
   }
 };
 </script>

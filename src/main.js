@@ -8,21 +8,21 @@ import axios from "axios";
 
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
-
+import AuthMixin from "./auth.mixin.vue"
 Vue.use(Buefy)
-
+Vue.mixin(AuthMixin);
 
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCeVKAN2nTCByHDXP0YAhHmDsw9VOawqcw",
-    authDomain: "vue-kpl.firebaseapp.com",
-    databaseURL: "https://vue-kpl.firebaseio.com",
-    projectId: "vue-kpl",
-    storageBucket: "vue-kpl.appspot.com",
-    messagingSenderId: "159987305258",
-    appId: "1:159987305258:web:6dfda3278fa26ca7a66c53"
+  apiKey: "AIzaSyCeVKAN2nTCByHDXP0YAhHmDsw9VOawqcw",
+  authDomain: "vue-kpl.firebaseapp.com",
+  databaseURL: "https://vue-kpl.firebaseio.com",
+  projectId: "vue-kpl",
+  storageBucket: "vue-kpl.appspot.com",
+  messagingSenderId: "159987305258",
+  appId: "1:159987305258:web:6dfda3278fa26ca7a66c53"
 };
 
 firebase.initializeApp(firebaseConfig);

@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>action</th>
+          <th v-if="loggedIn"  class="has-text-right"><i class="fa fa-cogs" aria-hidden="true"></i></th>
         </tr>
       </thead>
       <tbody>
@@ -14,7 +14,7 @@
             :to="{name:'tournaments-matches',params:{id:item.id}}"
             tag="td"
           >{{item.name}} {{item.type?`(${item.type})`:''}}</router-link>
-          <td>
+          <td v-if="loggedIn">
             <a @click="delete_item(item.id)">
               <i class="fa fa-trash"></i>
             </a>
@@ -26,7 +26,7 @@
         </tr>
       </tbody>
     </table>
-    <button v-if="data.length<=11" @click="open_form()" class="button is-primary">Add Player</button>
+    <button  v-if="loggedIn && data.length<=11" @click="open_form()" class="button is-primary">Add Player</button>
   </div>
 </template>
 

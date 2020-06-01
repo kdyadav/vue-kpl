@@ -1,15 +1,15 @@
 <template>
-  <div id="app" >
+  <div id="app">
     <nav-bar></nav-bar>
     <router-view class="section" />
   </div>
 </template>
 
 <script>
-import Header from "./components/Top-Header";
+import Navbar from "./components/navbar";
 export default {
   components: {
-    "nav-bar": Header
+    "nav-bar": Navbar
   },
   data() {
     return {
@@ -24,7 +24,7 @@ body {
   min-height: 100vh;
   background: #f5f5f5;
 }
-.is-pointer{
+.is-pointer {
   cursor: pointer;
 }
 </style>

@@ -5,7 +5,7 @@
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">{{item.name}}</p>
-            <a href="#" class="card-header-icon" aria-label="more options">
+            <span v-if="loggedIn" class="card-header-icon" aria-label="more options">
               <a @click="delete_item(item.id)">
                 <i class="fa fa-trash"></i>
               </a>
@@ -13,7 +13,7 @@
               <a @click="open_form(item)">
                 <i class="fa fa-edit"></i>
               </a>
-            </a>
+            </span>
           </header>
           <div class="card-content">
             <ScoreList :inning_id="item.id" />
@@ -23,7 +23,7 @@
     </div>
 
     <button
-      v-if="data.length<=1"
+      v-if="loggedIn && data.length<=1"
       @click="open_form(null,{name:data.length+1})"
       class="button is-primary"
     >Add Inning</button>
