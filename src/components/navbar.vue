@@ -35,7 +35,10 @@
           </div>
           <div class="buttons" v-else>
             <a @click="signOut" class="button is-primary">
-              <strong>Sign out</strong>
+              <strong>
+                <span class="tag is-uppercase">{{current_user.email.split("@")[0]}}</span>
+                Sign out
+              </strong>
             </a>
           </div>
         </div>
@@ -58,12 +61,14 @@ export default {
     this.setupFirebase();
   },
   methods: {
-    ...mapMutations(["SET_AUTHENICATION"]),
+    ...mapMutations(["SET_AUTHENICATION", "SET_CURRENT_USER"]),
     setupFirebase() {
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
+          this.SET_CURRENT_USER(user);
           this.SET_AUTHENICATION(true);
         } else {
+          this.SET_CURRENT_USER({});
           this.SET_AUTHENICATION(false);
         }
       });

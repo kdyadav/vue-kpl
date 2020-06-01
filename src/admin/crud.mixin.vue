@@ -11,7 +11,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["fb"])
+    ...mapState(["fb","current_user"])
   },
   methods: {
     get_data() {
@@ -53,10 +53,13 @@ export default {
         component: this.formComponent,
         hasModalCard: true,
         customClass: "custom-class custom-class-2",
-        trapFocus: true
+        trapFocus: true,
+
       });
     },
     save(data, id) {
+      data = {...data,user_id:this.current_user.uid};
+      
       (id ? this.ref.doc(id).set(data) : this.ref.add(data))
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
