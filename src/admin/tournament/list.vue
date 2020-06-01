@@ -48,13 +48,8 @@ export default {
     ...mapState(["fb"])
   },
   created() {
-    // if (this.loggedIn) {
-    //   this.ref = this.fb
-    //     .collection("tournaments")
-    //     .where("user_id", "==", this.current_user.uid);
-    // } else {
-    //   this.ref = this.fb.collection("tournaments");
-    // }
+    this.ref = this.fb.collection("tournaments");
+    this.get_data();
   },
   watch: {
     loggedIn(val) {
