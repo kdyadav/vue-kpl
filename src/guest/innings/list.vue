@@ -8,7 +8,8 @@
               {{item.name}}
               <span
                 class="tag"
-              >{{item.batting_team.name}} vs {{item.bowling_team.name}}</span>
+
+              >Batting :: {{item.batting_team.name}} </span>
             </p>
             <span v-if="loggedIn" class="card-header-icon" aria-label="more options">
               <a @click="delete_item(item.id)">

@@ -24,14 +24,17 @@ body {
   min-height: 100vh;
   background: #f5f5f5;
 }
-.form-modal{
-  padding-left:1rem; 
-  padding-right:1rem; 
+.form-modal {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .is-pointer {
   cursor: pointer;
 }
-.td-edit-delete{
+.td-edit-delete {
   width: 68px;
+}
+form {
+  min-width: 333px;
 }
 </style>

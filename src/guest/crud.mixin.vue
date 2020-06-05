@@ -50,6 +50,7 @@ export default {
           ...info
         },
         parent: this,
+        width:400,
         component: this.formComponent,
         hasModalCard: true,
         customClass: "form-modal",

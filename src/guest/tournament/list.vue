@@ -18,7 +18,7 @@
             tag="td"
           >{{item.name}}</router-link>
           <td>{{item.venue || "NA"}}</td>
-          <td v-if="loggedIn" class="has-text-right">
+          <td v-if="loggedIn" class="has-text-right td-edit-delete">
             <a @click="delete_item(item.id)">
               <i class="fa fa-trash"></i>
             </a>

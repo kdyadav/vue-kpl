@@ -7,7 +7,7 @@
       <section class="modal-card-body">
         {{last_record}}
         <b-field label="Batter*">
-          <b-select expanded v-model="form.batter" placeholder="Select a name">
+          <b-select expanded v-model="form.batter" placeholder="Select batting Player">
             <option
               v-for="(option) in batting_team_player"
               :value="option.name"
@@ -17,7 +17,12 @@
         </b-field>
 
         <b-field label="Bowler*">
-          <b-select v-if="form.bowl==1" expanded v-model="form.bowler" placeholder="Select a name">
+          <b-select
+            v-if="form.bowl==1"
+            expanded
+            v-model="form.bowler"
+            placeholder="Select batting Player"
+          >
             <option
               v-for="(option) in bowling_team_player"
               :value="option.name"
@@ -70,8 +75,8 @@ export default {
   data() {
     return {
       form: {
-        batter: "",
-        bowler: "",
+        batter: null,
+        bowler: null,
         over: 1,
         bowl: 1,
         bowl_type: "Bowl",
