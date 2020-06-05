@@ -1,12 +1,15 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Register from "../views/Register.vue";
-import Login from "../views/Login.vue";
-import Secret from "../views/Secret.vue";
-import Tournaments from "../admin/tournament/list";
-import Matches from "../admin/match/list";
-import MatcheDetails from "../admin/match/details";
+// Shared
+import Home from "../shared/Home.vue";
+import Register from "../shared/Register.vue";
+import Login from "../shared/Login.vue";
+// Admin
+import Admin from "../admin/admin.vue";
+// guests
+import Tournaments from "../guest/tournament/list";
+import Matches from "../guest/match/list";
+import MatcheDetails from "../guest/match/details";
 
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -22,7 +25,7 @@ const routes = [
   {
     path: "/secret",
     name: "secret",
-    component: Secret,
+    component: Admin,
     meta: { requiresAuth: true }
   },
   {

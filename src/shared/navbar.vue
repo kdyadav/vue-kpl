@@ -1,5 +1,10 @@
 <template>
-  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar is-primary"
+    v-click-outside="()=>{expand=false}"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div class="navbar-brand">
       <a class="navbar-item">
         KPL
@@ -27,6 +32,9 @@
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
+          <span class="tag is-uppercase is-danger" v-if="loggedIn">{{current_user.email.split("@")[0]}}</span>
+        </div>
+        <div class="navbar-item">
           <div class="buttons" v-if="!loggedIn">
             <router-link class="button is-primary" to="/register">
               <strong>Sign up</strong>
@@ -35,10 +43,7 @@
           </div>
           <div class="buttons" v-else>
             <a @click="signOut" class="button is-primary">
-              <strong>
-                <span class="tag is-uppercase">{{current_user.email.split("@")[0]}}</span>
-                Sign out
-              </strong>
+              <strong>Sign out</strong>
             </a>
           </div>
         </div>

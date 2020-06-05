@@ -53,13 +53,7 @@ export default {
   },
   watch: {
     loggedIn(val) {
-      if (val) {
-        this.ref = this.fb
-          .collection("tournaments")
-          .where("user_id", "==", this.current_user.uid);
-      } else {
-        this.ref = this.fb.collection("tournaments");
-      }
+      this.ref = this.fb.collection("tournaments");
       this.get_data();
     }
   }

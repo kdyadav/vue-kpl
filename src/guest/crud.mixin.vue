@@ -52,9 +52,8 @@ export default {
         parent: this,
         component: this.formComponent,
         hasModalCard: true,
-        customClass: "custom-class custom-class-2",
+        customClass: "form-modal",
         trapFocus: true,
-
       });
     },
     save(data, id) {

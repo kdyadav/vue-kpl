@@ -48,8 +48,7 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          console.log("here");
-          this.$router.replace({ name: "secret" });
+          this.$router.replace({ name: "tournaments" });
         })
         .catch(error => (this.error = error));
     }

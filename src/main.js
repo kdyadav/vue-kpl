@@ -8,7 +8,16 @@ import axios from "axios";
 
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
-import AuthMixin from "./auth.mixin.vue"
+
+
+import AuthMixin from "./auth.mixin.vue";
+
+import vClickOutside from 'v-click-outside'
+ 
+Vue.use(vClickOutside)
+
+
+
 Vue.use(Buefy)
 Vue.mixin(AuthMixin);
 
