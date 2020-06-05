@@ -79,9 +79,7 @@ export default {
     },
     select_bowling_team() {
       this.form.batting_team =
-        this.form.bowling_team == this.teams[0]
-          ? this.teams[1]
-          : this.teams[0];
+        this.form.bowling_team == this.teams[0] ? this.teams[1] : this.teams[0];
     }
   }
 };

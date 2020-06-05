@@ -21,7 +21,7 @@
             </span>
           </header>
           <div class="card-content">
-            <ScoreList :inning="item" />
+            <ScoreList :match="match" :inning="item" />
           </div>
         </div>
       </div>
@@ -41,6 +41,7 @@ import CRUD from "../crud.mixin";
 import formComponent from "./form";
 import ScoreList from "../score/list";
 export default {
+  props:['match'],
   mixins: [CRUD],
   components: { ScoreList },
   data() {

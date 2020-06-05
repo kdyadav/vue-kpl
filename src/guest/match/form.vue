@@ -38,13 +38,20 @@ export default {
         name: "",
         date: "",
         time: "",
+        overs: 5,
         ground_name: ""
       }
     };
   },
   created() {
     if (this.data) {
-      this.form = _.pick(this.data, ["name", "date", "time", "ground_name"]);
+      this.form = _.pick(this.data, [
+        "name",
+        "date",
+        "time",
+        "ground_name",
+        "overs"
+      ]);
     }
   }
 };

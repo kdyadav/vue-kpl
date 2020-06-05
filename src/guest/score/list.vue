@@ -1,30 +1,19 @@
 <template>
   <div>
     <table class="table is-fullwidth">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th class="has-text-right" v-if="loggedIn">
-            <i class="fa fa-cogs" aria-hidden="true"></i>
-          </th>
-        </tr>
-      </thead>
       <tbody>
-        <tr v-for="(item,i) in data" :key="i">
-          <router-link
-            class="is-pointer"
-            :to="{name:'tournaments-matches',params:{id:item.id}}"
-            tag="td"
-          >
+        <tr v-for="(item,i) in sorted" :key="i">
+          <td>
             <span class="tag">{{item.over}}.{{item.bowl}}</span>
-
+          </td>
+          <td>
             <span class="has-text-danger">{{item.bowler}}</span>
             to
             <span class="has-text-primary">{{item.batter}}</span>
             , scored {{item.run }} run.
-            {{item.commentary}}
-          </router-link>
-          <td v-if="loggedIn" class="has-text-right">
+            {{item.commentary }} {{item.created |date}}
+          </td>
+          <td v-if="loggedIn" class="has-text-right td-edit-delete">
             <a @click="delete_item(item.id)">
               <i class="fa fa-trash"></i>
             </a>
@@ -38,7 +27,7 @@
     </table>
     <button
       v-if="loggedIn"
-      @click="open_form(null,{batting_team_player,bowling_team_player,last_record:data.length?data[data.length-1]:null})"
+      @click="open_form(null,{overs:match.overs, batting_team_player,bowling_team_player,last_record:sorted.length?sorted[0]:null})"
       class="button is-primary"
     >Add Score</button>
   </div>
@@ -49,7 +38,7 @@ import { mapState } from "vuex";
 import CRUD from "../crud.mixin";
 import formComponent from "./form";
 export default {
-  props: ["inning"],
+  props: ["inning", "match"],
   mixins: [CRUD],
 
   data() {
@@ -72,6 +61,17 @@ export default {
 
     this.get_data();
     this.get_team_players(ref);
+  },
+  computed: {
+    sorted() {
+      return this.data.sort((a, b) => {
+        if (a.over > b.over) return -1;
+        if (a.over < b.over) return 1;
+        if (a.bowl > b.bowl) return -1;
+        if (a.bowl < b.bowl) return 1;
+        return 0;
+      });
+    }
   },
   methods: {
     get_team_players(ref) {

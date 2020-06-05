@@ -5,7 +5,7 @@
         <p class="modal-card-title">Player</p>
       </header>
       <section class="modal-card-body">
-        <!-- {{last_record}} -->
+        {{last_record}}
         <b-field label="Batter*">
           <b-select expanded v-model="form.batter" placeholder="Select a name">
             <option
@@ -27,7 +27,7 @@
           <span v-else>{{form.bowler}}</span>
         </b-field>
         <b-field label="Over*">
-          <b-input type="number" :min="1" v-model="form.over" placeholder="1" required></b-input>
+          <b-input type="number" :min="1" :max="overs" v-model="form.over" placeholder="1" required></b-input>
         </b-field>
         <b-field label="bowl*">
           <b-select expanded v-model="form.bowl" placeholder="Select a name">
@@ -60,6 +60,7 @@
 <script>
 export default {
   props: [
+    "overs",
     "data",
     "save",
     "batting_team_player",
@@ -75,7 +76,8 @@ export default {
         bowl: 1,
         bowl_type: "Bowl",
         run: 0,
-        commentary: ""
+        commentary: "",
+        created: Date.now()
       }
     };
   },
@@ -90,6 +92,9 @@ export default {
         this.last_record.bowl + 1 <= 6
       )
         this.form.bowl = this.last_record.bowl + 1;
+
+      if (this.last_record.bowl_type == "Bowl" && this.last_record.bowl + 1 > 6)
+        this.form.over = +this.last_record.over + 1;
     } else if (this.data) {
       this.form = _.pick(this.data, [
         "batter",

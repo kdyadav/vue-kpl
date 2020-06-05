@@ -32,7 +32,7 @@
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
-          <span class="tag is-uppercase is-danger" v-if="loggedIn">{{current_user.email.split("@")[0]}}</span>
+          <router-link :to="{name:'admin'}" class="tag is-uppercase is-danger" v-if="loggedIn">{{current_user.email.split("@")[0]}}</router-link>
         </div>
         <div class="navbar-item">
           <div class="buttons" v-if="!loggedIn">

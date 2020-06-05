@@ -23,8 +23,8 @@ const routes = [
     component: Home
   },
   {
-    path: "/secret",
-    name: "secret",
+    path: "/admin",
+    name: "admin",
     component: Admin,
     meta: { requiresAuth: true }
   },

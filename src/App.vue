@@ -31,4 +31,7 @@ body {
 .is-pointer {
   cursor: pointer;
 }
+.td-edit-delete{
+  width: 68px;
+}
 </style>

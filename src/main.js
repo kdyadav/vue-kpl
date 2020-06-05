@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import DateFilter from "./filters";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import axios from "axios";
@@ -16,7 +17,7 @@ import vClickOutside from 'v-click-outside'
  
 Vue.use(vClickOutside)
 
-
+Vue.filter("date", DateFilter);
 
 Vue.use(Buefy)
 Vue.mixin(AuthMixin);

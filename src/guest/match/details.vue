@@ -9,24 +9,24 @@
         <div class="columns">
           <div class="column">
             <p class="tag">
-              Date
+              Date : 
               {{details.date}} {{details.time?details.time:""}}
             </p>
           </div>
           <div class="column">
-            <p class="tag">Overs {{details.overs}}</p>
+            <p class="tag">Overs : {{details.overs}}</p>
           </div>
           <div class="column">
-            <p class="tag">Ground Name {{details.ground_name}}</p>
+            <p class="tag">Ground Name : {{details.ground_name || "NA"}}</p>
           </div>
         </div>
       </div>
     </div>
     <hr />
 
-    <InningsList />
+    <InningsList :match="details" />
     <hr />
-    <TeamList />
+    <TeamList :match="details" />
   </div>
 </template>
 
