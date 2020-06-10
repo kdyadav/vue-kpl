@@ -1,5 +1,7 @@
 # kpl
 
+check [Live](https://vue-kpl.web.app/).
+
 ## Project setup
 ```
 npm install
