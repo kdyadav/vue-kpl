@@ -11,7 +11,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["fb","current_user"])
+    ...mapState(["fb", "current_user"])
   },
   methods: {
     get_data() {
@@ -50,15 +50,18 @@ export default {
           ...info
         },
         parent: this,
-        width:400,
+        width: 400,
         component: this.formComponent,
         hasModalCard: true,
         customClass: "form-modal",
-        trapFocus: true,
+        trapFocus: true
       });
     },
     save(data, id) {
-      (id ? this.ref.doc(id).set(data) : this.ref.add(data))
+      (id
+        ? this.ref.doc(id).set(data)
+        : this.ref.add({ ...data, user_id: this.current_user.uid })
+      )
         .then(function(docRef) {
           console.log("Document written with ID: ", docRef.id);
         })

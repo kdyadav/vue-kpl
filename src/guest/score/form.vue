@@ -5,7 +5,6 @@
         <p class="modal-card-title">Player</p>
       </header>
       <section class="modal-card-body">
-        {{last_record}}
         <b-field label="Batter*">
           <b-select expanded v-model="form.batter" placeholder="Select batting Player">
             <option
@@ -44,15 +43,16 @@
             <option v-for="(option,i) in [0,1,2,3,4,6]" :value="option" :key="i">{{ option }}</option>
           </b-select>
         </b-field>
-        <b-field label="Bowl-Type*">
+        <b-checkbox v-model="form.is_out">Is Out</b-checkbox>
+        <!-- <b-field label="Bowl-Type*">
           <b-select expanded v-model="form.bowl_type" placeholder="Select a name">
             <option
-              v-for="(option,i) in ['Bowl','Wide','No','Dead']"
+              v-for="(option,i) in ['Bowl','Wide','No']"
               :value="option"
               :key="i"
             >{{ option }}</option>
           </b-select>
-        </b-field>
+        </b-field>-->
       </section>
       <footer class="modal-card-foot">
         <button class="button" type="button" @click="$parent.close()">Cancel</button>
@@ -75,6 +75,7 @@ export default {
   data() {
     return {
       form: {
+        is_out: false,
         batter: null,
         bowler: null,
         over: 1,
