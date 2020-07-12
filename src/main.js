@@ -31,23 +31,14 @@ import lodash from 'lodash'
 // name is optional
 Vue.use(VueLodash, { name: 'custom' , lodash: lodash })
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyCeVKAN2nTCByHDXP0YAhHmDsw9VOawqcw",
-  authDomain: "vue-kpl.firebaseapp.com",
-  databaseURL: "https://vue-kpl.firebaseio.com",
-  projectId: "vue-kpl",
-  storageBucket: "vue-kpl.appspot.com",
-  messagingSenderId: "159987305258",
-  appId: "1:159987305258:web:6dfda3278fa26ca7a66c53"
-
-  // apiKey: process.env.apiKey,
-  // authDomain: process.env.authDomain,
-  // databaseURL: process.env.databaseURL,
-  // projectId: process.env.projectId,
-  // storageBucket: process.env.storageBucket,
-  // messagingSenderId: process.env.messagingSenderId,
-  // appId: process.env.appId
+  apiKey: "AIzaSyA1yCg_NoQDR6J6eTHeQFBiGuWEdDuw0pE",
+  authDomain: "koond-cricket-club.firebaseapp.com",
+  databaseURL: "https://koond-cricket-club.firebaseio.com",
+  projectId: "koond-cricket-club",
+  storageBucket: "koond-cricket-club.appspot.com",
+  messagingSenderId: "415930102513",
+  appId: "1:415930102513:web:7d62b4940d2f774bdc6f50"
 };
 
 firebase.initializeApp(firebaseConfig);

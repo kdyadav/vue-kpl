@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="score-list">
     <b-tabs v-model="activeTab">
       <b-tab-item :label="total+'-'+ total_out + ' | Commentary'">
         <table class="table is-fullwidth">
@@ -13,7 +13,8 @@
                 to
                 <span class="has-text-primary">{{item.batter}}</span>
                 , scored {{item.run }} run.
-                {{item.commentary }} {{item.created |date}}
+                {{item.commentary }}
+                <!-- p{{item.created | date}} -->
               </td>
               <td v-if="loggedIn" class="has-text-right td-edit-delete">
                 <a @click="delete_item(item.id)">
@@ -209,3 +210,10 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.score-list {
+  .tab-content {
+    padding: 0;
+  }
+}
+</style>

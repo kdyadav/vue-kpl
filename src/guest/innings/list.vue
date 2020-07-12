@@ -2,7 +2,7 @@
   <div>
     <div class="columns">
       <div class="column" v-for="(item,i) in data" :key="i">
-        <div class="card">
+        <div class="card" style="padding:0">
           <header class="card-header">
             <p class="card-header-title">
               {{item.name}}
@@ -21,7 +21,7 @@
               </a>
             </span>
           </header>
-          <div class="card-content">
+          <div class="card-content"  style="padding:5px">
             <ScoreList :match="match" :inning="item" />
           </div>
         </div>

@@ -1,6 +1,6 @@
 # kpl
 
-check [Live](https://vue-kpl.web.app/).
+check [Live](https://koond-cricket-club.web.app/).
 
 ## Project setup
 ```
