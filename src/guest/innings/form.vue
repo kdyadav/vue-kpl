@@ -14,12 +14,14 @@
             expanded
             v-model="form.batting_team"
             placeholder="Select a name"
+            required
           >
             <option v-for="option in teams" :value="option" :key="option.id">{{ option.name }}</option>
           </b-select>
         </b-field>
         <b-field label="Bowling">
           <b-select
+            required
             @input="select_bowling_team"
             expanded
             v-model="form.bowling_team"

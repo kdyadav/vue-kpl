@@ -2,7 +2,7 @@
   <div class="card">
     <header class="card-header">
       <p @click="active=!active" class="card-header-title">{{item.name}}</p>
-      <span v-if="loggedIn" class="card-header-icon" aria-label="more options">
+      <span v-if="loggedIn &&  has_write_access(item)" class="card-header-icon" aria-label="more options">
         <a @click="$parent.delete_item(item.id)">
           <i class="fa fa-trash"></i>
         </a>

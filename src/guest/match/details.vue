@@ -23,7 +23,6 @@
       </div>
     </div>
     <hr />
-
     <InningsList :match="details" />
     <hr />
     <TeamList :match="details" />

@@ -14,7 +14,7 @@
               :to="{name:'match-details',params:{tournament_id:$route.params.id,id:item.id}}"
             >{{item.name}}</router-link>
           </td>
-          <td v-if="loggedIn"  class="has-text-right">
+          <td v-if="loggedIn &&  has_write_access(item)"  class="has-text-right">
             <a @click="delete_item(item.id)">
               <i class="fa fa-trash"></i>
             </a>

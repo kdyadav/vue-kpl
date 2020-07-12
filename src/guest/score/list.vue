@@ -16,7 +16,7 @@
                 {{item.commentary }}
                 <!-- p{{item.created | date}} -->
               </td>
-              <td v-if="loggedIn" class="has-text-right td-edit-delete">
+              <td v-if="loggedIn && has_write_access(item)" class="has-text-right td-edit-delete">
                 <a @click="delete_item(item.id)">
                   <i class="fa fa-trash"></i>
                 </a>
@@ -83,7 +83,7 @@
     </b-tabs>
     <br />
     <button
-      v-if="loggedIn"
+      v-if="loggedI&&  has_write_access(match)"
       @click="open_form(null,{overs:match.overs, batting_team_player,bowling_team_player,last_record:sorted.length?sorted[0]:null})"
       class="button is-primary"
     >Add Score</button>

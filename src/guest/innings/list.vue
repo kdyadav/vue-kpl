@@ -11,7 +11,7 @@
 
               >Batting :: {{item.batting_team.name}} </span>
             </p>
-            <span v-if="loggedIn" class="card-header-icon" aria-label="more options">
+            <span v-if="loggedIn && has_write_access(item)" class="card-header-icon" aria-label="more options">
               <a @click="delete_item(item.id)">
                 <i class="fa fa-trash"></i>
               </a>
